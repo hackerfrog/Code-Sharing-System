@@ -3,9 +3,11 @@ use \Psr\Http\Message\ServerRequestInterface as Request;
 use \Psr\Http\Message\ResponseInterface as Response;
 
 require 'vendor/autoload.php';
+require 'src/config.php';
 require 'src/database.php';
+require 'src/users.php';
 
-$app = new \Slim\App;
+$app 	= new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
 
 $app->get('/user/{id}/{salt}', function (Request $request, Response $response) {
     $id = $request->getAttribute('id');
@@ -17,12 +19,47 @@ $app->get('/user/{id}/{salt}', function (Request $request, Response $response) {
 });
 
 $app->post('/login', function (Request $request, Response $response) {
-	var_dump($request->getParsedBody());
+
+	$config = new Config();
+	$goto 	= $config->link();
+
+	$data 	= (object) $request->getParsedBody();
+
+	$db 	= new database();
+	$db 	= $db->connect();
+	$user 	= new User($db);
+	$result	= json_decode($user->login($data));
+
+	if ($result->status == 'error') {
+		$goto	= $config->link('login', $result->code);
+	} elseif ($result->status == 'ok') {
+		$goto	= $config->link('login', $result->code);
+	}
+
+	return $response->withHeader('location', $goto);
+
 });
 
 $app->post('/register', function(Request $request, Response $response) {
-	$data = (object) $request->getParsedBody();
-	var_dump($data);
+
+	$config = new Config();
+	$goto 	= $config->link();
+
+	$data 	= (object) $request->getParsedBody();
+
+	$db 	= new database();
+	$db 	= $db->connect();
+	$user 	= new User($db);
+	$result	= json_decode($user->add($data));
+
+	if ($result->status == 'error') {
+		$goto	= $config->link('register', $result->code);
+	} elseif ($result->status == 'ok') {
+		$goto	= $config->link('login', $result->code);
+	}
+
+	return $response->withHeader('location', $goto);
+
 });
 
 $app->run();

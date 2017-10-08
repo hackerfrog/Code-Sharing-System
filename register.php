@@ -18,6 +18,9 @@
 			<div class="login-box">
 				<span class="head">Register</span>
 				<form action="api/v1/register" method="post">
+
+					<?= $config->codeExpand($_GET); ?>
+					
 					<label>Full Name</label>
 					<input type="text" name="name" placeholder="Full Name">
 					<label>Email</label>

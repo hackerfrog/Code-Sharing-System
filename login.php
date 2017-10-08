@@ -18,6 +18,9 @@
 			<div class="login-box">
 				<span class="head">Login</span>
 				<form action="api/v1/login" method="post">
+
+					<?= $config->codeExpand($_GET); ?>
+				
 					<label>Email</label>
 					<input type="email" name="email" placeholder="Email Address">
 					<label>Password</label>

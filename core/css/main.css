@@ -21,6 +21,32 @@ body {
 .text-center {
 	text-align: center;
 }
+.error,
+.success,
+.warning {
+	font-size: 14px;
+	display: block;
+	padding: 12px;
+	padding-left: 56px;
+	margin-top: 12px;
+	background-repeat: no-repeat;
+	background-size: 32px;
+	background-position: 12px 4px;
+	color: #fff;
+	border-radius: 4px;
+}
+.error {
+	background-color: #fd8167;
+	background-image: url('../img/error.png');
+}
+.success {
+	background-color: #acce44;
+	background-image: url('../img/success.png');
+}
+.warning {
+	background-color: #fdaa32;
+	background-image: url('../img/warning.png');
+}
 
 .userbar {
 	margin: 16px 0;
