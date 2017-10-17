@@ -6,6 +6,7 @@
 		private $index		= "index.php";
 		private $login		= "login.php";
 		private $register	= "register.php";
+		private $explore	= "explore.php";
 
 		private $code;
 
@@ -29,6 +30,9 @@
 				case 'register':
 					return $this->domain . $this->register . $code;
 					break;
+				case 'explore':
+					return $this->domain . $this->explore . $code;
+					break;
 			}
 		}
 
@@ -39,6 +43,7 @@
 				$this->code['102']	= 'Your Email address is alredy in use.';
 				$this->code['103']	= 'Unable to register user.';
 				$this->code['104']	= 'Wrong email or password.';
+
 				$this->code['200']	= 'You have been registered.';
 			}
 
@@ -58,6 +63,22 @@
 					// WARNINGS (300 - 399)
 					return '<span class="warning">' . $this->getError($get['code']) . '</span>';
 				}
+			}
+		}
+
+		public function checkSession($session) {
+			if (isset($session['userId']) and isset($session['userSalt'])) {
+
+				include_once 'users.php';
+				include_once 'database.php';
+
+				$db 	= new database();
+				$db 	= $db->connect();
+				$user 	= new User($db);
+
+				$user->sessionAuth($session['userId'], $session['userSalt']);
+
+				header('location: ' . $this->link('explore'));
 			}
 		}
 

@@ -7,6 +7,8 @@ require 'src/config.php';
 require 'src/database.php';
 require 'src/users.php';
 
+session_start();
+
 $app 	= new \Slim\App(['settings' => ['displayErrorDetails' => true]]);
 
 $app->get('/user/{id}/{salt}', function (Request $request, Response $response) {
@@ -33,6 +35,8 @@ $app->post('/login', function (Request $request, Response $response) {
 	if ($result->status == 'error') {
 		$goto	= $config->link('login', $result->code);
 	} elseif ($result->status == 'ok') {
+    	$_SESSION['userId'] 	= $result->data->id;
+    	$_SESSION['userSalt']	= $result->data->salt;
 		$goto	= $config->link('login', $result->code);
 	}
 

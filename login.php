@@ -2,6 +2,8 @@
 
 	include "_config.php";
 
+	$config->checkSession($_SESSION);
+
 ?>
 <!DOCTYPE html>
 <html>
