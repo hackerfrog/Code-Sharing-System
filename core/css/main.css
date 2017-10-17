@@ -147,7 +147,9 @@ body {
 	font-weight: bold;
 	font-size: 1em;
 }
-.login-box .after {}
+.login-box .after {
+	padding-top: 16px;
+}
 
 .footer {
 	background: #333;

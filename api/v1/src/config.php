@@ -36,16 +36,15 @@
 			}
 		}
 
-			function __construct()
-			{
-				$this->code['100']	= 'All fields are mandatory.';
-				$this->code['101']	= 'Password don\'t match.';
-				$this->code['102']	= 'Your Email address is alredy in use.';
-				$this->code['103']	= 'Unable to register user.';
-				$this->code['104']	= 'Wrong email or password.';
+		function __construct() {
+			$this->code['100']	= 'All fields are mandatory.';
+			$this->code['101']	= 'Password don\'t match.';
+			$this->code['102']	= 'Your Email address is alredy in use.';
+			$this->code['103']	= 'Unable to register user.';
+			$this->code['104']	= 'Wrong email or password.';
 
-				$this->code['200']	= 'You have been registered.';
-			}
+			$this->code['200']	= 'You have been registered.';
+		}
 
 		public function getError($code) {
 			return $this->code[$code];
@@ -76,9 +75,7 @@
 				$db 	= $db->connect();
 				$user 	= new User($db);
 
-				$user->sessionAuth($session['userId'], $session['userSalt']);
-
-				header('location: ' . $this->link('explore'));
+				return $user->sessionAuth($session['userId'], $session['userSalt']);
 			}
 		}
 

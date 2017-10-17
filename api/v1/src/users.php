@@ -195,7 +195,11 @@
 			$stmt->execute();
 			$row 	= (object) $stmt->fetch(PDO::FETCH_ASSOC);
 
-			var_dump($row);
+			if ($row->num > 0) {
+				return true;
+			} else {
+				return false;
+			}
 
 		}
 

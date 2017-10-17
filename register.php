@@ -2,7 +2,8 @@
 
 	include "_config.php";
 
-	$config->checkSession($_SESSION);
+	if($config->checkSession($_SESSION))
+        header('location: ' . $config->link('explore'));
 
 ?>
 <!DOCTYPE html>
@@ -33,6 +34,9 @@
 					<input type="password" name="cpassword" placeholder="Confirm Password">
 					<input type="submit" name="register" value="Register">
 				</form>
+				<div class="after text-center">
+					Oh! You had one - <a href="register.php">Login</a> now.
+				</div>
 			</div>
 		</div>
 		<?php

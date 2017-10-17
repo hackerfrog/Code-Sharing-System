@@ -2,7 +2,8 @@
 
 	include "_config.php";
 
-	$config->checkSession($_SESSION);
+	if($config->checkSession($_SESSION))
+        header('location: ' . $config->link('explore'));
 
 ?>
 <!DOCTYPE html>
@@ -30,7 +31,7 @@
 					<input type="submit" name="login" value="Login">
 				</form>
 				<div class="after text-center">
-					Need account - <a href="register.php">Register</a> now.
+					Nah! I Need account - <a href="register.php">Register</a> now.
 				</div>
 			</div>
 		</div>

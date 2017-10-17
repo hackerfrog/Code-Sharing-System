@@ -12,7 +12,7 @@
 				<div class="pull-right">
 					<ul>
 						<li>
-							<a href="#explore.php">Explore</a>
+							<a href="explore.php">Explore</a>
 						</li>
 						<li>
 							<a href="login.php">Login</a>
