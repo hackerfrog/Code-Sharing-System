@@ -66,5 +66,19 @@ $app->post('/register', function(Request $request, Response $response) {
 
 });
 
+$app->post('/new', function(Request $request, Response $response) {
+
+	$config = new Config();
+	$goto	= $config->link();
+
+	$data 	= (object) $request->getParsedBody();
+
+	$db 	= new database();
+	$db 	= $db->connect();
+
+	return $response;
+
+});
+
 $app->run();
 ?>

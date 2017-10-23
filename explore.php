@@ -17,7 +17,11 @@
     <body>
         <?php
 			userBar();
+        ?>
 
+        
+        
+        <?php
 			footer();
 		?>
     </body>
