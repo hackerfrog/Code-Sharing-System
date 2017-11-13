@@ -92,4 +92,8 @@
 <?php
 	}
 
+	function homeBody() {
+		
+	}
+
 ?>

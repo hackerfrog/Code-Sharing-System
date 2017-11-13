@@ -76,6 +76,8 @@ $app->post('/new', function(Request $request, Response $response) {
 	$db 	= new database();
 	$db 	= $db->connect();
 
+	var_dump($data);
+
 	return $response;
 
 });

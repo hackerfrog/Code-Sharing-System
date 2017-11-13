@@ -201,11 +201,35 @@ body {
 	font-size: 0.75em;
 }
 .newcode input[type="text"],
-.newcode textarea {
+.newcode textarea,
+.newcode select {
 	padding: 12px 16px;
 	width: calc(100% - 34px);
 	border-radius: 4px;
 	border: 1px solid #999;
 	background: transparent;
 	font-size: 1em;
+}
+.newcode input[type="submit"] {
+	margin-top: 12px;
+	padding: 12px 16px;
+	border-radius: 4px;
+	border: 0;
+	background: linear-gradient(#3acbf4, #0bb7e8);
+	color: #fff;
+	font-weight: bold;
+	font-size: 1em;
+}
+.newcode select {
+	width: 100%;
+}
+
+.CodeMirror {
+	border: 1px solid #999;
+	border-radius: 4px;
+	height: auto !important;
+	font-size: 1.3em;
+}
+.CodeMirror pre.CodeMirror-placeholder {
+	color: #999;
 }

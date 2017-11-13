@@ -17,7 +17,7 @@
     <body>
         <?php
 			userBar();
-
+            homeBody();
 			footer();
 		?>
     </body>
