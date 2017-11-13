@@ -27,6 +27,16 @@
 		return $lang->langName($code);
 	}
 
+	function privacyIcon($type) {
+		if ($type == 'pub') {
+			return '<img title="Public" class="privacy" src="core/img/globe.png">';
+		} elseif ($type == 'pro') {
+			return '<img title="Protected" class="privacy" src="core/img/lock.png">';
+		} elseif ($type == 'pri') {
+			return '<img title="Private" class="privacy" src="core/img/private.png">';
+		}
+	}
+
 	function getExplore() {
 		global $code;
 		$data = json_decode( $code->explore() );
@@ -39,7 +49,7 @@
 		</div>
 		<textarea id="codemirror-<?= $row->id; ?>" class="CodeMirror"><?= $row->code; ?></textarea>
 		<div class="opts">
-			<span class="privacy"><?= $row->privacy; ?></span>
+			<span class="privacy"><?= privacyIcon($row->privacy); ?></span>
 			<span class="datetime"><?= date('j F Y', strtotime($row->datetime)); ?></span>
 		</div>
 	</div>

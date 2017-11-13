@@ -261,6 +261,9 @@ body {
 	text-decoration: none;
 	color: #18a9d2;
 }
+.code .opts img.privacy {
+	height: 16px;
+}
 .code .opts .datetime {
 	float: right;
 	font-size: 12px;

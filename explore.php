@@ -13,6 +13,14 @@
         <script src="vendor/codemirror/lib/codemirror.js"></script>
         <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css">
         <script src="vendor/codemirror/mode/javascript/javascript.js"></script>
+
+        <style type="text/css">
+            .CodeMirror {
+                height: 150px;
+                display: block;
+                max-height: 300px;
+            }
+        </style>
     </head>
 
     <body>

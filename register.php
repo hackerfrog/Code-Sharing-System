@@ -35,7 +35,7 @@
 					<input type="submit" name="register" value="Register">
 				</form>
 				<div class="after text-center">
-					Oh! You had one - <a href="register.php">Login</a> now.
+					Oh! You had one - <a href="login.php">Login</a> now.
 				</div>
 			</div>
 		</div>
