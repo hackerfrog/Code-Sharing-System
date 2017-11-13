@@ -2,9 +2,6 @@
 
 	include '_config.php';
 
-    if(!$config->checkSession($_SESSION))
-        header('location: ' . $config->link('login'));
-
 ?>
     <!DOCTYPE html>
     <html>

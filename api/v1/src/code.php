@@ -68,6 +68,14 @@
 							$this->table
 						WHERE
 							privacy = 'pub'";
+			if (isset($_SESSION['userId'])) {
+				$sql 	= 	"SELECT
+							*
+						FROM
+							$this->table
+						WHERE
+							privacy = 'pub' OR privacy = 'pro' OR (user = {$_SESSION['userId']})";
+			}
 			$stmt	= $this->con->prepare($sql);
 			$stmt->execute();
 
