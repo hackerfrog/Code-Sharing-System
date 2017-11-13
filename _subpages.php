@@ -93,7 +93,7 @@
 	}
 
 	function homeBody() {
-		
+		echo '<h1 style="text-align:center;padding:40px 0px;color:#333;">Code Sharing System</h1>';
 	}
 
 ?>

@@ -30,8 +30,12 @@
             <div class="text-center">
                 <h3>New Code</h3>
             </div>
+
             <div class="container">
                 <form method="post" action="api/v1/new">
+
+                    <?= $config->codeExpand($_GET); ?>
+
                     <label>Title</label>
                     <input type="text" name="title">
                     <label>Code</label>

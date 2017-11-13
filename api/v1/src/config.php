@@ -7,6 +7,7 @@
 		private $login		= "login.php";
 		private $register	= "register.php";
 		private $explore	= "explore.php";
+		private $new		= "new.php";
 
 		private $code;
 
@@ -33,6 +34,8 @@
 				case 'explore':
 					return $this->domain . $this->explore . $code;
 					break;
+				case 'new':
+					return $this->domain . $this->new . $code;
 			}
 		}
 
@@ -44,6 +47,7 @@
 			$this->code['104']	= 'Wrong email or password.';
 
 			$this->code['200']	= 'You have been registered.';
+			$this->code['201']  = 'Your code is published.';
 		}
 
 		public function getError($code) {

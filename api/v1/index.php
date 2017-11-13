@@ -6,6 +6,7 @@ require 'vendor/autoload.php';
 require 'src/config.php';
 require 'src/database.php';
 require 'src/users.php';
+require 'src/code.php';
 
 session_start();
 
@@ -75,10 +76,17 @@ $app->post('/new', function(Request $request, Response $response) {
 
 	$db 	= new database();
 	$db 	= $db->connect();
+	$code	= new Code($db);
 
-	var_dump($data);
+	$result = json_decode($code->insertCode($data));
 
-	return $response;
+	if ($result->status == 'error') {
+		$goto	= $config->link('new', $result->code);
+	} elseif ($result->status == 'ok') {
+		$goto	= $config->link('new', $result->code);
+	}
+
+	return $response->withHeader('location', $goto);
 
 });
 

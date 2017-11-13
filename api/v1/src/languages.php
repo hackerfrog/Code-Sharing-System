@@ -42,6 +42,22 @@
 
 			return json_encode($row);
 		}
+
+		public function langName($code) {
+			$sql	=	"SELECT
+							lang
+						FROM
+							$this->table
+						WHERE
+							id = :id";
+			$stmt	= $this->con->prepare($sql);
+			$stmt->bindParam('id', $code);
+			$stmt->execute();
+
+			$row	= (object) $stmt->fetch(PDO::FETCH_ASSOC);
+
+			return $row->lang;
+		}
 	}
 
 ?>

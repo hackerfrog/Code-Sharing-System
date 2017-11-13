@@ -167,7 +167,7 @@
 
 					if ($stmt->execute()) {
 						$ret['status']	= 'ok';
-						$ret['200']		= '200';
+						$ret['code']	= '200';
 						return json_encode($ret);
 					} else {
 						$ret['status']	= 'error';
